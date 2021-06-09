@@ -1,0 +1,55 @@
+{% extends "plantillaBase.html" %} {% load static %}
+{% block contenido %} 
+
+    <section class="form-register">
+    <center><h2>Registrate en HamburGame</h2></center>
+    <center><h3>y accede a promociones épicas</h3></center>
+    <p></p>
+        <label>Ingrese su RUT</label>
+        <input class="controls" type="text" name="rut" id="rut" placeholder="12304190-9">
+        <label>Ingrese su nombre completo</label>
+        <input class="controls" type="text" name="nombres" id="nombres" placeholder="Juan Perez Rodriguez">
+        <label>Ingrese su correo</label>
+        <input class="controls" type="email" name="correo" id="correo" placeholder="juan.pr@gmail.com">        
+        <label>Ingrese su contraseña (debe tener al menos una mayúscula y un número)</label>
+        <input class="controls" type="text" name="apellidos" id="apellidos" placeholder="**********">
+        <label>Confirme su contraseña</label>
+        <input class="controls" type="text" name="apellidos" id="apellidos" placeholder="**********">
+        <label>Ingrese su fecha de nacimiento</label>
+        <input class="controls" type="date" name="fdn" id="fdn" placeholder="Ingrese su fecha de nacimiento">
+        <label>Ingrese su número celular</label>
+        <input class="controls" type="text" name="cel" id="cel" placeholder="+56989716244">
+        <p></p>
+        <div class="form-group">
+            <div class="form-group">
+                <label for="exampleFormControlSelect1">Indique su País </label>
+                <select class="form-control" id="exampleFormControlSelect1">
+                <option>Chile</option>
+                <option>Brasil</option>
+                <option>Estados Unidos</option>
+                <option>Canadá</option>
+                <option>México</option>
+            </select>
+          </div>
+        <p></p>
+        <div class="form-group">
+            <div class="form-group">
+                <label for="exampleFormControlSelect1">Elija su método de pago</label>
+                <select class="form-control" id="exampleFormControlSelect1">
+                <option>Visa</option>
+                <option>Mastercard</option>
+                <option>Maestro</option>
+                <option>UnionPay</option>
+                <option>JCB</option>
+
+            </select>
+        </div>
+        <p></p>
+        <a href="RegistroOk.html" class="btn" role="button" aria-pressed="true" >Registrar</a><br>
+        <p><a href="#">¿Tengo una cuenta?</a></p>
+        <div class="container">
+        <a href="index.html" class="btn" role="button" aria-pressed="true" >Volver Inicio</a>
+        </div>
+    </section>  
+
+{% endblock %}
