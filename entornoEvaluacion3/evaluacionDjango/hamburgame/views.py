@@ -42,6 +42,7 @@ def inicio(request):
 
 
 
+
 #TIPO
 def listarTipo(request):
     tipos = Tipo.objects.all() 
