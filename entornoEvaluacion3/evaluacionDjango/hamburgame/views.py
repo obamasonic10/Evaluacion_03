@@ -11,9 +11,7 @@ def normales(request):
 
 def premium(request):
     return render(request, 'premium.html')    
-
-def registro(request):
-    return render(request, 'registro.html')       
+  
 
 
 
