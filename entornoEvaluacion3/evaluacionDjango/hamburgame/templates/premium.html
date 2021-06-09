@@ -1,0 +1,83 @@
+{% extends "plantillaBase.html" %} {% load static %}
+
+{% block contenido %} 
+<div class="row">
+    <div class="col-md-12">
+        <div data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img class="d-block w-100" src="{% static 'images/vend.jpg' %}">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="invisible">...</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card mb-4 box-shadow bg-warning">
+                <img class="card-img-top imgcard" style="height: 225px; width: 100%;" src="{% static 'images/hamb1b.png' %}" >
+                <div class="card-body">
+                    <h5>Mortal Kombat</h5>
+                <p class="card-text">Doble hamburguesa de vacuno con mayonesa,
+                                            un poco de lechuga, queso cheddar, cebolla morada, 
+                                            pepinillos y tocino. <br>Matará tu hambre con un Fatality. </p>
+                <p class="font-weight-bold">$4.500</p>
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                    <a href="#" class="btn btn-primary">Agregar al carro</a>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card mb-4 box-shadow bg-warning">
+                <img class="card-img-top" src="{% static 'images/hamb3a.jpg' %}" style="height: 225px; width: 100%;">
+                <div class="card-body">
+                    <h5>Doom</h5>
+                <p class="card-text">Doble hamburguesa de vacuno con queso cheddar extra, salsa BBQ, aros de 
+                    cebolla y tocino. <br>   Una hamburguesa simplemente brutal. </p>
+                    <p class="font-weight-bold">$3.500</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                        <a href="#" class="btn btn-primary">Agregar al carro</a>
+                        </div>
+                </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card mb-4 box-shadow bg-warning">
+                <img class="card-img-top" src="{% static 'images/hamb13a.jpg' %}" style="height: 225px; width: 100%;">
+                <div class="card-body">
+                <h5>Final Fantasy</h5>
+                <p class="card-text"> Exquisita hamburguesa de vacuno a lo pobre, con cebolla caramelizada, 
+                    queso gauda, huevo frito y finas papas fritas. <br>Una fantasía hecha realidad. </p>
+                    <p></p>
+                    <p class="font-weight-bold">$3.000</p>
+                    <p></p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                        <a href="#" class="btn btn-primary">Agregar al carro</a>
+                        </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+
+
+</body>
+</html>
+
+
+{% endblock %}
