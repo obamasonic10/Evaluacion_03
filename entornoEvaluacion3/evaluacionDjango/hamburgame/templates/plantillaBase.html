@@ -6,17 +6,17 @@
   <link rel="shortcut icon" href="{% static 'images/logo.jpeg' %} ">
 	<meta charset="utf-8">
 	<title>HamburGame</title>
-	<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-    <link rel="stylesheet" href="{% static 'css/styleFR.css' %}">
-    <script src="{% static 'js/jquery-3.5.1.min.js' %}"></script>
-	<script src="{% static 'js/bootstrap.bundle.min' %}" ></script>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+	<link rel="stylesheet" href="css/styleFR.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
     <!--aqui iria <script> y despues abajo$ (function(){)}...-->
 </head>
 
 <script>	
   $(function()
   { // $.post, $.get, $.ajax
-      $.getJSON("{% static 'js/api.js' %}", function(data) {
+      $.getJSON('https://mindicador.cl/api', function(data) {
               var indicadores = data;
               $('.txtDolar').val(indicadores.dolar.valor);	
               
@@ -65,19 +65,19 @@
                 <nav class="navbar navbar-expand-md navbar-light bg-light"  >
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                         <span class="navbar-toggler-icon"></span>
-                    </button> <a class="navbar-brand" href="{% url 'index' %}"><img style="height: 40px; " src="{% static 'images/logo.jpeg' %}" ></a>
+                    </button> <a class="navbar-brand" href="index.html"><img style="height: 40px; " src="{% static 'images/logo.jpeg' %}" ></a>
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
                         <ul class="navbar-nav">
                             <li class="nav-item active">
-                                <a class="nav-link" href="{% url 'index' %}">Menú<span class="sr-only">(current)</span></a>
+                                <a class="nav-link" href="index.html">Menú<span class="sr-only">(current)</span></a>
                             </li>
                             <div class="right-divider"></div>
                             <li class="nav-item active">
-                                <a class="nav-link" href="{% url 'normales' %}">Hamburguesas Normales</a>
+                                <a class="nav-link" href="normales.html">Hamburguesas Normales</a>
                             </li>
                             <li class="nav-item active">
-                                <a class="nav-link" href="{% url 'premium' %}">Hamburguesas Premium</a>
+                                <a class="nav-link" href="premium.html">Hamburguesas Premium</a>
                             </li>
                             <div class="right-divider"></div>
                             <li class="nav-item active">
@@ -133,7 +133,7 @@
 
                         <ul class="navbar-nav ml-md-auto">
                             <li class="nav-item active">
-                                <a class="nav-link" href="{% url 'registro' %}"><span class="sr-only">(current)</span><button type="button" class="btn btn-danger" style="height: 40px; width: 101%;" >Registrarse</button></a>
+                                <a class="nav-link" href="Registro2.0.html"><span class="sr-only">(current)</span><button type="button" class="btn btn-danger" style="height: 40px; width: 101%;" >Registrarse</button></a>
                             </li>
                             <li class="nav-item active dropdown ">
 
@@ -152,7 +152,7 @@
                                         </label>
                                         <input type="password" class="form-control" />
                                     </li>  
-                                        <a class="nav-link" href="{% url 'index' %}">
+                                        <a class="nav-link" href="indexses.html">
                                             <button type="button" class="btn btn-danger" style="height: 50px; width: 100%;">Entrar</button>
                                         </a>
                                         <li>
