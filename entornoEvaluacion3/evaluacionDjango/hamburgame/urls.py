@@ -5,7 +5,7 @@ urlpatterns = [
     path('', inicio, name="inicio"),
     path('normales', normales, name="normales"),
     path('premium', premium, name="premium"),
-     path('registro', premium, name="registro"),
+    path('registro', registro, name="registro"),
 
 
 

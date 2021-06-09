@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import Producto, Tipo
 from .forms import ProductoForm, TipoForm
+
 # Create your views here.
 def inicio(request):
     return render(request, 'index.html')
