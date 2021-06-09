@@ -1,0 +1,50 @@
+{% extends "plantillaBase.html" %} {% load static %} {% block titulo %} {{ 'Listado de productos' }} {% endblock %} {% block tituloPestana %} {{ 'Listado de productos' }} {% endblock %} {% block contenido %}
+
+<form method="post">
+    {% csrf_token %}
+    <div class="row mt-4 justify-content-center">
+        <div class="col-5">
+            <input type="text" name="txtBuscar" class="form-control">
+        </div>
+        <div class="col-1">
+            <input type="submit" class="btn btn-success" value="Buscar">
+        </div>
+    </div>
+</form>
+
+<div class="row mt-4">
+    <div class="col-12">
+        <table class="table">
+            <tr class="text-light">
+                <th>Id</th>
+                <th>Codigo de barra</th>
+                <th>Descripción</th>
+                <th>Precio costo</th>
+                <th>Precio Venta</th>
+                <th>Activo</th>
+                <th>Categoria</th>
+                <th>Acción</th>
+            </tr>
+            <!-- se agregan las filas de los productos -->
+            {% for producto in productos %}
+            <tr class="text-light">
+                <td>{{ producto.id }}</td>
+                <td>{{ producto.codigoBarra }}</td>
+                <td>{{ producto.descripcion }}</td>
+                <td>{{ producto.precioCosto }}</td>
+                <td>{{ producto.precioVenta }}</td>
+                <td>{{ producto.activo }}</td>
+                <td>{{ producto.categoria }}</td>
+                <td>
+                    <a href="{% url 'formModProducto' producto.id %}" class="btn btn-warning" target="_blank">Modificar</a>
+                    <a href="{% url 'eliminarProducto' producto.id %}" class="btn btn-danger">Eliminar</a>
+                
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+        <a href="{% url 'formProducto' %}" class="btn btn-primary">Crear</a>
+   
+    </div>
+</div>
+{% endblock%}
