@@ -5,6 +5,12 @@ from .forms import ProductoForm, TipoForm
 def inicio(request):
     return render(request, 'index.html')
 
+def normales(request):
+    return render(request, 'normales.html')    
+
+def premium(request):
+    return render(request, 'premium.html')       
+
 
 
 
