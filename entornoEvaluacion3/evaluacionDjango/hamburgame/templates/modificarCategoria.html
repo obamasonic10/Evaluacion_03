@@ -1,0 +1,24 @@
+{% extends "plantillaBase.html" %} {% block tituloPestana %} {{ 'Modificar Categoria' }} {% endblock %} {% block titulo %} {{ 'Categoria a modificar' }} {% endblock %} {% block contenido %} {% if mensaje %}
+<div class="alert alert-success" role="alert">
+    {{ mensaje}}
+</div>
+{% endif %}
+<form method="post">
+    {% csrf_token %}
+    <div class="row  justify-content-center">
+        <div class="col-12 col-md-6">
+            <table class="table">
+                {{ form.as_table }}
+            </table>
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-6">
+            <input type="submit" class="btn btn-danger" value="Guardar los cambios">
+            <a href="{% url 'listarCategoria' %}" class="btn btn-success">Listar</a>
+        </div>
+    </div>
+</form>
+
+{% endblock%}

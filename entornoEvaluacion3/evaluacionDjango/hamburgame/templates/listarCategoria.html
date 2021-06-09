@@ -1,0 +1,45 @@
+{% extends "plantillaBase.html" %} {% block titulo %} {{ 'Listado de categoría' }} {% endblock %} {% block tituloPestana %} {{ 'Listado de categoría' }} {% endblock %} {% block contenido %}
+
+<form method="post">
+    {% csrf_token %}
+    <div class="row mt-4 justify-content-center">
+        <div class="col-5">
+            <input type="text" name="txtBuscar" class="form-control">
+        </div>
+        <div class="col-1">
+            <input type="submit" class="btn btn-success" value="Buscar">
+        </div>
+    </div>
+</form>
+<div class="row mt-4">
+    <div class="col-12">
+        <table class="table">
+            <tr class="text-light">
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Activo</th>
+                <th>Acción</th>
+            </tr>
+            <!-- se agregan las filas de los productos -->
+            {% for categoria in categorias %}
+            <tr class="text-light">
+                <td>{{ categoria.id }}</td>
+                <td>{{ categoria.nombre }}</td>
+                <td>{{ categoria.activo }}</td>
+                <td>
+                    <a href="{% url 'modificarCategoria' categoria.id %}" class="btn btn-warning">Modificar</a>
+                    <a href="{% url 'eliminarCategoria' categoria.id %}" class="btn btn-danger">Eliminar</a>
+                
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+    <a href="{% url 'crearCategoria' %}" class="btn btn-primary">Crear</a>
+   
+    </div>
+</div>
+{% endblock%}
