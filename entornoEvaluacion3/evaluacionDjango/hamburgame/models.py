@@ -12,7 +12,7 @@ class Tipo(models.Model):
 
 class Producto (models.Model):
     id = models.IntegerField(primary_key = True)
-    tipo = models.ForeignKey(Tipo, on_delete=models.CASCADE, verbose_name="Categoría")
+    tipo = models.ForeignKey(Tipo, on_delete=models.CASCADE, verbose_name="Tipo")
     codigoBarra = models.IntegerField(verbose_name="Código de Barras")
     descripcion = models.CharField(max_length=50, verbose_name="Descripción")
     precioCosto = models.IntegerField(verbose_name="Precio Costo")
