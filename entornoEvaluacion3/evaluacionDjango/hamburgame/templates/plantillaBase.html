@@ -13,6 +13,50 @@
     <!--aqui iria <script> y despues abajo$ (function(){)}...-->
 </head>
 
+<script>	
+  $(function()
+  { // $.post, $.get, $.ajax
+      $.getJSON('https://mindicador.cl/api', function(data) {
+              var indicadores = data;
+              $('.txtDolar').val(indicadores.dolar.valor);	
+              
+          }).fail(function() {
+              console.log('Error al consumir la API!');
+      });
+      
+      
+      $('.btnLimpiar').click(function()
+      {
+          $('.txtValor, .txtPesos, .txtRedondeado').val('');
+          $('.txtValor').focus();	
+          return false;
+      })
+      
+      $('.btnCambiar').click(function()
+      {
+          if($('.txtValor').val() == "")
+          {
+              alert('Debe especificar el valor en CLP');
+              $('.txtValor').focus();	
+          }
+          else
+          {
+              var total = $('.txtDolar').val();
+              var valor = $('.txtValor').val();
+              var pesos = valor/total;
+              var total_redondeado =pesos.toFixed(2);
+
+              pesos = isNaN(pesos)?'':(pesos.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "."));						
+              $('.txtPesos').val(pesos);
+
+              total_redondeado = isNaN(total_redondeado)?'':("$"+total_redondeado.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));						
+              $('.txtRedondeado').val(total_redondeado);	
+          }
+          return false;
+      })			
+  })
+</script>
+
 <body class="bg-dark">
   <div class="container-fluid">
     <div class="row">
@@ -146,6 +190,7 @@
             </div>
         </div>
     </div>
+    
 </body>
 
 </html>
