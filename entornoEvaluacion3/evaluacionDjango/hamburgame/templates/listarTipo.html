@@ -1,0 +1,48 @@
+{% extends "plantillaBase.html" %} 
+{% load static %}
+{% block titulo %} {{ 'Listado de tipo' }} {% endblock %} 
+{% block tituloPestana %} {{ 'Listado de tipo' }} {% endblock %}
+
+{% block contenido %}
+
+<form method="post">
+    {% csrf_token %}
+    <div class="row">
+        <div class="col-5">
+            <input type="text" name="txtBuscar" class="form-control"> 
+        </div>
+        <div class="col-1">
+            <input type="submit" class="btn btn-success" value="Buscar">
+        </div>
+    </div>
+</form>
+<div class="row">
+    <div class="col-12">
+        <table class="table">
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Activo</th>
+                <th>Acción</th>
+            </tr>
+            <!-- se agregan las filas de los productos -->
+            {% for tipo in tipos %}
+            <tr>
+                <td>{{ tipo.id }}</td>
+                <td>{{ tipo.nombre }}</td>
+                <td>{{ tipo.activo }}</td>
+                <td>
+                    <a href="{% url 'modificarTipo' tipo.id %}" class="btn btn-warning">Modificar</a>
+                    <a href="{% url 'eliminarTipo' tipo.id %}" class="btn btn-danger">Eliminar</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        <a href="{% url 'crearTipo' %}" class="btn btn-primary">Crear</a>
+    </div>
+</div>
+{% endblock%}
