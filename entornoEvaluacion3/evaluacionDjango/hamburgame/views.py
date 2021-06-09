@@ -51,7 +51,7 @@ def listarTipo(request):
         tipos = Tipo.objects.filter(nombre__contains = buscar).order_by('nombre') 
 
     contexto = { 'categorias' : tipos  }
-    return render(request, 'listarCategoria.html', contexto)
+    return render(request, 'listarTipo.html', contexto)
     
 def crearTipo(request):
     contexto = {'formulario' : TipoForm }
