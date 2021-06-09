@@ -16,7 +16,7 @@
 <script>	
   $(function()
   { // $.post, $.get, $.ajax
-      $.getJSON('https://mindicador.cl/api', function(data) {
+      $.getJSON("{% static 'js/api.js' %}", function(data) {
               var indicadores = data;
               $('.txtDolar').val(indicadores.dolar.valor);	
               
