@@ -1,9 +1,6 @@
 from django.urls import path
 from .views import inicio,normales, premium, listadoProducto, formProducto, formModProducto, eliminarProducto, crearCategoria, listarCategoria,modificarCategoria, eliminarCategoria
-<<<<<<< HEAD
-=======
 from .views import crearCliente, listarCliente, modificarCliente, eliminarCliente
->>>>>>> 3b6ae540981a75c7907302d6ee3a516b84829584
 
 
 
