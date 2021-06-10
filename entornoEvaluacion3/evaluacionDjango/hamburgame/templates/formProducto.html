@@ -1,0 +1,24 @@
+{% extends "plantillaBase.html" %} {% block titulo %} {{ 'Producto' }} {% endblock %} {% block tituloPestana %} {{ 'Ingreso de producto' }} {% endblock %} {% block contenido %} {% if mensaje %}
+<div class="alert alert-success" role="alert">
+    {{ mensaje}}
+</div>
+{% endif %}
+<form method="post">
+    {% csrf_token %}
+    <div class="row  justify-content-center">
+        <div class="col-12 col-md-6">
+            <table class="table">
+                {{ form.as_table }}
+            </table>
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-6">
+            <input type="submit" class="btn btn-primary" value="Enviar">
+            <a href="{% url 'listadoProducto' %}" class="btn btn-primary">Listar</a>
+        </div>
+    </div>
+</form>
+
+{% endblock%}

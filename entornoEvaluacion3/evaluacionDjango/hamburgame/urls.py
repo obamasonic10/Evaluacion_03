@@ -1,18 +1,27 @@
 from django.urls import path
-from .views import inicio, normales, premium, listarTipo, crearTipo,  modificarTipo, eliminarTipo
+from .views import inicio,normales, premium, listadoProducto, formProducto, formModProducto, eliminarProducto, crearCategoria, listarCategoria,modificarCategoria, eliminarCategoria
+
+
+
 
 urlpatterns = [
-    path('', inicio, name="inicio"),
-    path('normales', normales, name="normales"),
-    path('premium', premium, name="premium"),
+    path('index.html', inicio, name="inicio"),
+    path('normales.html', normales, name="normales"),
+    path('premium.html', premium, name="premium"),
 
 
 
+    path('listadoProducto', listadoProducto, name="listadoProducto"),
+    path('formProducto', formProducto, name="formProducto"),
+    path('formModProducto/<id>', formModProducto, name="formModProducto"),
+    path('eliminarProducto/<id>', eliminarProducto, name="eliminarProducto"),
 
 
 
-    path('listarTipo', listarTipo, name="listarTipo"),
-    path('crearTipo', crearTipo, name="crearTipo"),
-    path('modificarTipo/<id>', modificarTipo, name="modificarTipo"),
-    path('eliminarTipo/<id>', eliminarTipo, name="eliminarTipo"),
-]
+    path('crearCategoria', crearCategoria, name="crearCategoria"),
+    path('listarCategoria', listarCategoria, name="listarCategoria"),
+    path('modificarCategoria/<id>', modificarCategoria, name="modificarCategoria"),
+    path('eliminarCategoria/<id>', eliminarCategoria, name="eliminarCategoria"),
+
+   
+    ]
