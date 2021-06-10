@@ -1,11 +1,6 @@
 from django.shortcuts import render, redirect
-<<<<<<< HEAD
-from .models import Producto, Categoria
-from .forms import ProductoForm, CategoriaForm
-=======
 from .models import Producto, Categoria, Cliente
 from .forms import ProductoForm, CategoriaForm, ClienteForm
->>>>>>> 3b6ae540981a75c7907302d6ee3a516b84829584
 # Create your views here.
 def inicio(request):
     return render(request, 'index.html')
@@ -15,7 +10,6 @@ def normales(request):
 
 def premium(request):
     return render(request, 'premium.html')   
-<<<<<<< HEAD
 
         
 def listadoProducto(request):
@@ -40,58 +34,12 @@ def formProducto(request):
         contexto['mensaje'] = "Los datos fueron guardados"
         
     return render(request, 'formProducto.html', contexto)
-=======
->>>>>>> 3b6ae540981a75c7907302d6ee3a516b84829584
-
-        
-def listadoProducto(request):
-# obtiene todos los datos de la tabla producto
-    productos = Producto.objects.all()
-
-<<<<<<< HEAD
-def formModProducto(request, id):
-    producto = Producto.objects.get(id = id)
-    contexto = {'form' : ProductoForm(instance=producto) }
-
-    if request.method == 'POST':
-        formulario = ProductoForm(data=request.POST, instance=producto)
-        formulario.save()
-        contexto['mensaje'] = "Los datos fueron guardados"
-        contexto['form'] = ProductoForm(instance=Producto.objects.get(id = id))
-=======
-    if request.method == 'POST':
-        buscar = request.POST['txtBuscar']
-        productos = Producto.objects.filter(descripcion__contains = buscar).order_by('descripcion') # select * from Categoria where nombre like '%patron%'
-# crear el contexto para ser enviado a la plantilla (render)
-    contexto = { 'productos' : productos  }
-# renderizar (unir los datos con la plantilla)
-    return render(request, 'listadoProducto.html', contexto)
-    
-def formProducto(request):
-    contexto = {'form' : ProductoForm }
-
-## guardar en la base de datos --> modelos    
-    if request.method == 'POST':
-        formulario = ProductoForm(request.POST)
-        formulario.save()
-        contexto['mensaje'] = "Los datos fueron guardados"
-        
-    return render(request, 'formProducto.html', contexto)
->>>>>>> 3b6ae540981a75c7907302d6ee3a516b84829584
 
     return render(request, 'formModProducto.html', contexto)
 
-<<<<<<< HEAD
-def eliminarProducto(request, id):
-    producto = Producto.objects.get(id = id)
-# elimina el elemento de la base de datos
-    producto.delete()
-    return redirect(to="listadoProducto")
-=======
 def formModProducto(request, id):
     producto = Producto.objects.get(id = id)
     contexto = {'form' : ProductoForm(instance=producto) }
->>>>>>> 3b6ae540981a75c7907302d6ee3a516b84829584
 
     if request.method == 'POST':
         formulario = ProductoForm(data=request.POST, instance=producto)
@@ -213,10 +161,6 @@ def eliminarCategoria(request, id):
 
 
 
-<<<<<<< HEAD
-
-
-=======
 
 
 
@@ -284,7 +228,6 @@ def eliminarCliente(request, id):
 
 
 
->>>>>>> 3b6ae540981a75c7907302d6ee3a516b84829584
 
 
 
