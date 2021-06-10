@@ -3,14 +3,17 @@
 <html>
 
 <head>
-  <link rel="shortcut icon" href="{% static 'images/logo.jpeg' %} ">
-	<meta charset="utf-8">
-	<title>HamburGame</title>
-	<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-    <link rel="stylesheet" href="{% static 'css/styleFR.css' %}">
-    <script src="{% static 'js/jquery-3.5.1.min.js' %}"></script>
-	<script src="{% static 'js/bootstrap.bundle.min' %}" ></script>
-    <!--aqui iria <script> y despues abajo$ (function(){)}...-->
+<!--  <link rel="shortcut icon" href="{% static 'images/logo.jpeg' %} ">-->
+    
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <link rel="stylesheet" href="cambio.js">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+  <title>HamburGame</title><script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+
 </head>
 
 <script>	
@@ -81,8 +84,31 @@
                             </li>
                             <div class="right-divider"></div>
                             <li class="nav-item active">
-                                <a class="nav-link" href="{% url 'formProducto' %}">Registrar productos</a>
+
+                            <div class="dropdown show">
+                                <a class="btn btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                  Productos
+                                </a>
+                              
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                  <a class="dropdown-item" href="{% url 'formProducto' %}">Agregar Productos</a>
+                                  <a class="dropdown-item" href="{% url 'listadoProducto' %}">Listar Productos</a>
+                                </div>
+                              </div>
                             </li>
+                            <li class="nav-item active">
+
+                                <div class="dropdown show">
+                                    <a class="btn btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                      Clientes
+                                    </a>
+                                  
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                      <a class="dropdown-item" href="{% url 'crearCliente' %}">Agregar Cliente</a>
+                                      <a class="dropdown-item" href="{% url 'listarCliente' %}">Listar Cliente</a>
+                                    </div>
+                                  </div>
+                                </li>
                         </ul>
 
                         <ul class="navbar-nav ml-md-auto">
@@ -133,8 +159,17 @@
 
                         <ul class="navbar-nav ml-md-auto">
                             <li class="nav-item active">
+<<<<<<< HEAD
 
 
+=======
+<<<<<<< HEAD
+
+
+=======
+                                <a class="nav-link" href="#"><span class="sr-only">(current)</span><button type="button" class="btn btn-danger" style="height: 40px; width: 101%;" >Registrarse</button></a>
+>>>>>>> fec66b2fad22e3b91e3e19923feb51fc3a143194
+>>>>>>> 8853300db49039412d2fda82747668a8248ac8e4
                             </li>
                             <li class="nav-item active dropdown ">
 
@@ -191,8 +226,8 @@
             </div>
         </div>
     </div>
-    <div class ="container">
-      <h1 class="text-center">{% block titulo %} {% endblock %}</h1>
+    <div class ="container-fluid">
+      <h1 class="text-center text-light">{% block titulo %} {% endblock %}</h1>
       {% block contenido %} {% endblock %}
     </div>
 
