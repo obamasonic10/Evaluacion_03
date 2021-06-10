@@ -1,11 +1,12 @@
 from django.urls import path
-from .views import index,normales, premium, listadoProducto, formProducto, formModProducto, eliminarProducto, crearCategoria, listarCategoria,modificarCategoria, eliminarCategoria
+from .views import inicio,normales, premium, listadoProducto, formProducto, formModProducto, eliminarProducto, crearCategoria, listarCategoria,modificarCategoria, eliminarCategoria
 
 
 
 
 urlpatterns = [
-    path('index.html', index, name="index"),
+    path('', inicio, name="inicio"),
+
     path('normales.html', normales, name="normales"),
     path('premium.html', premium, name="premium"),
 
