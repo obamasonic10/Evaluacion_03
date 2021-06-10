@@ -1,6 +1,4 @@
-{% extends "plantillaBase.html" %} 
-{% load static %}
-{% block tituloPestana %} {{ 'Modificar Tipo' }} {% endblock %} {% block titulo %} {{ 'Tipo a modificar' }} {% endblock %} {% block contenido %} {% if mensaje %}
+{% extends "plantillaBase.html" %} {% block titulo %} {{ 'Cliente' }} {% endblock %} {% block tituloPestana %} {{ 'Ingreso de categoría' }} {% endblock %} {% block contenido %} {% if mensaje %}
 <div class="alert alert-success" role="alert">
     {{ mensaje}}
 </div>
@@ -10,15 +8,15 @@
     <div class="row  justify-content-center">
         <div class="col-12 col-md-6">
             <table class="table">
-                {{ form.as_table }}
+                {{ formulario.as_table }}
             </table>
         </div>
     </div>
 
     <div class="row justify-content-center">
         <div class="col-12 col-md-6">
-            <input type="submit" class="btn btn-danger" value="Guardar los cambios">
-            <a href="{% url 'listarTipo' %}" class="btn btn-success">Listar</a>
+            <input type="submit" class="btn btn-primary" value="Crear">
+            <a href="{% url 'listarCliente' %}" class="btn btn-success">Listar</a>
         </div>
     </div>
 </form>

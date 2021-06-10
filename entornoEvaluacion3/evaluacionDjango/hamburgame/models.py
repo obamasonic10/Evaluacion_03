@@ -20,3 +20,37 @@ class Producto(models.Model):
 
     def __str__(self):
         return self.descripcion
+
+
+class Pais(models.Model):
+    id = models.IntegerField(primary_key = True)
+    nombre_pais = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.nombre_pais
+
+
+class NivelEducacional(models.Model):
+    id = models.IntegerField(primary_key = True)
+    nivel = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.nivel
+
+
+class Cliente(models.Model):
+    id          = models.IntegerField(primary_key = True)
+    rut         = models.CharField(max_length=50)
+    nombre      = models.CharField(max_length=50)
+    apellido    = models.CharField(max_length=50)
+    correo      = models.CharField(max_length=50)
+    fecha_nacimiento = models.DateField(auto_now=False, auto_now_add=False)
+    telefono = models.IntegerField()
+    pais = models.ForeignKey(Pais, on_delete=models.CASCADE, verbose_name="Pais")
+    nivel_educacional = models.ForeignKey(NivelEducacional, on_delete=models.CASCADE, verbose_name="NivelEducacional")
+    
+    def __str__(self):
+        return self.nombre + ' ' + self.apellido
+
+
+
