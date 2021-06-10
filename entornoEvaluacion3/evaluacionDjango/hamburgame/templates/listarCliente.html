@@ -13,21 +13,33 @@
 </form>
 <div class="row mt-4">
     <div class="col-12">
-        <table class="table">
+        <table class="table text-light text-center">
             <tr>
                 <th>Id</th>
                 <th>Rut</th>
                 <th>Nombre</th>
                 <th>Apellido</th>
+                <th>Correo</th>
+                <th>Fecha Nacimiento</th>
+                <th>Telefono</th>
+                <th>Pais</th>
+                <th>Nivel Educacional</th>
+                
+
                 <th>Acción</th>
             </tr>
             <!-- se agregan las filas de los productos -->
             {% for objeto in listado %}
-            <tr>
+            <tr class="text-light text-cente" >
                 <td>{{ objeto.id }}</td>
                 <td>{{ objeto.rut }}</td>
                 <td>{{ objeto.nombre }}</td>
                 <td>{{ objeto.apellido }}</td>
+                <td>{{ objeto.correo }}</td>
+                <td>{{ objeto.fecha_nacimiento }}</td>
+                <td>{{ objeto.telefono }}</td>
+                <td>{{ objeto.pais }}</td>
+                <td>{{ objeto.nivel_educacional }}</td>
                 <td>
                     <a href="{% url 'modificarCliente' objeto.id %}" class="btn btn-warning">Modificar</a>
                     <a href="{% url 'eliminarCliente' objeto.id %}" class="btn btn-danger">Eliminar</a>
