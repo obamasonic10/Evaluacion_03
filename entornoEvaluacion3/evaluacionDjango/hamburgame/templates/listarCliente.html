@@ -1,0 +1,45 @@
+{% extends "plantillaBase.html" %} {% block titulo %} {{ 'Listado de Cliente' }} {% endblock %} {% block tituloPestana %} {{ 'Listado de Cliente' }} {% endblock %} {% block contenido %}
+
+<form method="post">
+    {% csrf_token %}
+    <div class="row mt-4 justify-content-center">
+        <div class="col-5">
+            <input type="text" name="txtBuscar" class="form-control">
+        </div>
+        <div class="col-1">
+            <input type="submit" class="btn btn-success" value="Buscar">
+        </div>
+    </div>
+</form>
+<div class="row mt-4">
+    <div class="col-12">
+        <table class="table">
+            <tr>
+                <th>Id</th>
+                <th>Rut</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Acción</th>
+            </tr>
+            <!-- se agregan las filas de los productos -->
+            {% for objeto in listado %}
+            <tr>
+                <td>{{ objeto.id }}</td>
+                <td>{{ objeto.rut }}</td>
+                <td>{{ objeto.nombre }}</td>
+                <td>{{ objeto.apellido }}</td>
+                <td>
+                    <a href="{% url 'modificarCliente' objeto.id %}" class="btn btn-warning">Modificar</a>
+                    <a href="{% url 'eliminarCliente' objeto.id %}" class="btn btn-danger">Eliminar</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        <a href="{% url 'crearCliente' %}" class="btn btn-primary">Crear</a>
+    </div>
+</div>
+{% endblock%}

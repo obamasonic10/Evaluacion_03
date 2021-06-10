@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
-from .models import Producto, Categoria
-from .forms import ProductoForm, CategoriaForm
+from .models import Producto, Categoria, Cliente
+from .forms import ProductoForm, CategoriaForm, ClienteForm
 # Create your views here.
 def inicio(request):
     return render(request, 'index.html')
@@ -61,6 +61,13 @@ def eliminarProducto(request, id):
 
 
 
+
+
+
+
+
+
+
 def listarCategoria(request):
 # obtiene todos los datos de la tabla Categoria
     categorias = Categoria.objects.all() # select * from Categoria
@@ -111,6 +118,59 @@ def eliminarCategoria(request, id):
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+def crearCliente(request):
+    contexto = {'formulario' : ClienteForm }
+
+## guardar en la base de datos --> modelos    
+    if request.method == 'POST':
+        formulario = ClienteForm(request.POST)
+        formulario.save()
+        contexto['mensaje'] = "Los datos fueron guardados"
+        
+    return render(request, 'crearCliente.html', contexto)
+
+def listarCliente(request):
+    listado = Cliente.objects.all() 
+
+    if request.method == 'POST':
+        buscar = request.POST['txtBuscar'] 
+        listado = Cliente.objects.filter(nombre__contains = buscar).order_by('nombre', 'apellido')
+
+    contexto = { 'listado' : listado  }
+    return render(request, 'listarCliente.html', contexto)
+
+def modificarCliente(request, id):
+    objeto = Cliente.objects.get(id = id)
+    contexto = {'form' : ClienteForm(instance=objeto) }
+
+    if request.method == 'POST':
+        formulario = ClienteForm(data=request.POST, instance=objeto)
+        formulario.save()
+        contexto['mensaje'] = "Los datos fueron guardados"
+        contexto['form'] = ClienteForm(instance=Cliente.objects.get(id = id))
+
+    return render(request, 'modificarCliente.html', contexto)
+
+
+def eliminarCliente(request, id):
+    objeto = Cliente.objects.get(id = id)
+    objeto.delete()
+    return redirect(to="listarCliente")
 
 
 

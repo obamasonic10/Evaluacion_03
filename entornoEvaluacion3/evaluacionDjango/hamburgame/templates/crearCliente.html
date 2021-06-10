@@ -1,0 +1,24 @@
+{% extends "plantillaBase.html" %} {% block titulo %} {{ 'Cliente' }} {% endblock %} {% block tituloPestana %} {{ 'Ingreso de categoría' }} {% endblock %} {% block contenido %} {% if mensaje %}
+<div class="alert alert-success" role="alert">
+    {{ mensaje}}
+</div>
+{% endif %}
+<form method="post">
+    {% csrf_token %}
+    <div class="row  justify-content-center">
+        <div class="col-12 col-md-6">
+            <table class="table">
+                {{ formulario.as_table }}
+            </table>
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-6">
+            <input type="submit" class="btn btn-primary" value="Crear">
+            <a href="{% url 'listarCliente' %}" class="btn btn-success">Listar</a>
+        </div>
+    </div>
+</form>
+
+{% endblock%}
